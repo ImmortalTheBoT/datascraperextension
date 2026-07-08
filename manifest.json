@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Triple Scraper Ultimate",
+  "version": "4.2",
+  "description": "The ultimate scraping tool with Batch, Auto-Scroll, and Presets.",
+  "permissions": [
+    "storage", 
+    "activeTab", 
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "Open Triple Scraper",
+    "default_icon": {
+        "128": "icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["ExtPay.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["ExtPay.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
